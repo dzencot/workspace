@@ -1,0 +1,32 @@
+- name: Add nodejs package
+  shell: curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+
+- name: Install deps
+  apt:
+    pkg:
+      - git
+      - make
+      - nodejs
+      - zsh
+      - ruby-full
+    update_cache: yes
+  become: yes
+
+- name: Install npm
+  npm:
+    name: npm
+    global: yes
+  become: yes
+
+- name: Install Angular cli
+  npm:
+    name: "@angular/cli"
+    global: yes
+  become: yes
+
+- name: Donwload neovim
+  get_url:
+    url: https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
+    dest: /usr/local/bin/nvim
+    mode: 775
+  become: yes

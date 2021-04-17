@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  roles:
+    - role: dependencies
+    - role: oh-my-zsh
+      become: yes
+    # - role: gantsign.antigen
+    - role: dotfiles

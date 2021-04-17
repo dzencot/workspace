@@ -1,0 +1,5 @@
+# Install a role from Ansible Galaxy
+- include_role:
+    # name: gantsign.antigen
+    name: viasite-ansible.zsh
+

@@ -1,0 +1,12 @@
+- name: Download dotfiles
+  git:
+    repo: https://github.com/mokevnin/dotfiles
+    dest: dotfiles
+
+- name: Install dotfiles
+  shell: |
+    cd dotfiles
+    sudo make ubuntu-prepare
+    make nvim-install
+    sudo make deps
+    nvim +PlugUpdate +qa
